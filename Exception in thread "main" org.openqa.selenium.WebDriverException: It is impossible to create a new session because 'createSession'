@@ -1,0 +1,42 @@
+Please, Help me to solve this problem, Me created two class base & basics, If me try to run the program, Me found some error appear in Console & CMD
+
+public class base {
+
+	
+		    public static AndroidDriver<AndroidElement> Capabilities() throws MalformedURLException {
+
+			File f=new File("src");
+			File fs=new File(f,"ApiDemos-debug.apk");
+			
+			DesiredCapabilities cap=new DesiredCapabilities();
+			cap.setCapability(MobileCapabilityType.DEVICE_NAME, "demo");
+			cap.setCapability(MobileCapabilityType.APP, fs.getAbsolutePath());
+			AndroidDriver<AndroidElement> driver=new AndroidDriver<>(new URL("http://127.0.0.1:4723/wb/hub"),cap);
+			return driver;
+				
+
+	}
+
+}
+
+public class basics extends base{
+
+	public static void main(String[] args) throws MalformedURLException {
+		
+		AndroidDriver<AndroidElement> driver=Capabilities();
+	}
+
+}
+      
+      Console:
+      Exception in thread "main" org.openqa.selenium.WebDriverException: It is impossible to create a new session because 'createSession' which takes HttpClient, InputStream and long was not found or it is not accessible
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:48'
+System info: host: 'ADMINRG-FREUCDC', ip: '192.168.43.21', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_192'
+Driver info: driver.version: AndroidDriver
+
+CMD
+[HTTP] {"desiredCapabilities":{"app":"C:\\Users\\Lenovo\\eclipse-workspace1\\App BestDocPlus\\src\\ApiDemos-debug.apk","platformName":"Android","deviceName":"demo"},"capabilities":{"alwaysMatch":{"appium:app":"C:\\Users\\Lenovo\\eclipse-workspace1\\App BestDocPlus\\src\\ApiDemos-debug.apk","appium:deviceName":"demo","platformName":"android"},"firstMatch":[{}]}}
+[debug] [HTTP] No route found. Setting content type to 'text/plain'
+[HTTP] <-- POST /wb/hub/session 404 24 ms - 57
+[HTTP]
+      
